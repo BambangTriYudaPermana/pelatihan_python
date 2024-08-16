@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: bookrecipe
+      POSTGRES_USER: recipe_user_test
+      POSTGRES_PASSWORD: password_test
+    ports:
+      - "5432:5432"
+  
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+      # -  "8080-8081:8000" #untuk scale
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://recipe_user_test:password_test@db/bookrecipe
+
+volumes:
+  postgres_data:
