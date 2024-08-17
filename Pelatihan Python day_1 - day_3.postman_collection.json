@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "fd90c1a2-fe93-4b6f-a4e9-9ce990eae2fd",
+		"name": "Pelatihan Python day_1 - day_3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10300379"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Generate Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "yuda",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "112233",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyMzc3MzE5MCwiaWF0IjoxNzIzNjg2NzkwLCJqdGkiOiJlMGYxYzM1YzYyNjI0OTE3OWUyNDA2NWQ1OTNmM2M3YyIsInVzZXJfaWQiOjF9.LeduXHRjYC2GY8HNWv96UtdtkME6RMr9G2jrRTmajQc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"yuda5\",\r\n    \"password\": \"112233\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "yuda6",
+									"type": "text"
+								},
+								{
+									"key": "fullname",
+									"value": "yuda ya gaes ya",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "yuda3@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "112233",
+									"type": "text"
+								},
+								{
+									"key": "retypePassword",
+									"value": "112233",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/sign-up/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sign-up",
+								""
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "yuda2",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "112233",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "yuda2@gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipe",
+			"item": [
+				{
+					"name": "Add Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "level_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "recipe_name",
+									"value": "Nasi Goreng",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"value": "https://example.com/image.jpg",
+									"type": "text"
+								},
+								{
+									"key": "is_favorite",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/Luthfi Aziz CBN/Pictures/Screenshots/Screenshot 2024-07-30 112605.png"
+								},
+								{
+									"key": "image_filename",
+									"value": "namafileinput",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/recipes-list/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes-list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzgyNTQwLCJpYXQiOjE3MjM2OTYxNDAsImp0aSI6IjhhNGJhODRiNTk0ZDQxY2NhMDUxNmJhMGNjNDg2YmNmIiwidXNlcl9pZCI6MX0.SWC70MahPI7AMDY7HQ3GlBGNNzFyRDZPblyq73BImwU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "level_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "recipe_name",
+									"value": "Nasi Goreng Special",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"value": "https://example.com/image.jpg",
+									"type": "text"
+								},
+								{
+									"key": "is_favorite",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "image_filename",
+									"value": "namafileinputedit",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/Luthfi Aziz CBN/Pictures/Screenshots/Screenshot 2024-08-06 101005.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/recipes-detail/24176/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes-detail",
+								"24176",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzgyNTQwLCJpYXQiOjE3MjM2OTYxNDAsImp0aSI6IjhhNGJhODRiNTk0ZDQxY2NhMDUxNmJhMGNjNDg2YmNmIiwidXNlcl9pZCI6MX0.SWC70MahPI7AMDY7HQ3GlBGNNzFyRDZPblyq73BImwU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "recipe_name",
+									"value": "Nasi Goreng Special OK",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image_filename",
+									"value": "editpatch",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/Luthfi Aziz CBN/Pictures/Screenshots/Screenshot 2024-07-31 122210.png",
+									"disabled": true
+								},
+								{
+									"key": "is_favorite",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/recipes-detail/24176/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes-detail",
+								"24176",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-recipes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzgyNTQwLCJpYXQiOjE3MjM2OTYxNDAsImp0aSI6IjhhNGJhODRiNTk0ZDQxY2NhMDUxNmJhMGNjNDg2YmNmIiwidXNlcl9pZCI6MX0.SWC70MahPI7AMDY7HQ3GlBGNNzFyRDZPblyq73BImwU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/recipes-detail/24175/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes-detail",
+								"24175",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzczNTM3LCJpYXQiOjE3MjM2ODcxMzcsImp0aSI6IjhjMDAxNGJmNWE1MDRlYTc4YmNjNGZkNzU4ZmI3NTc0IiwidXNlcl9pZCI6MX0.B4hUejuAAlQKUZaxooaZIIQEnVVkeqnYA4k5ePRmlAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/recipes/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recipes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzczNTM3LCJpYXQiOjE3MjM2ODcxMzcsImp0aSI6IjhjMDAxNGJmNWE1MDRlYTc4YmNjNGZkNzU4ZmI3NTc0IiwidXNlcl9pZCI6MX0.B4hUejuAAlQKUZaxooaZIIQEnVVkeqnYA4k5ePRmlAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/book-recipe/book-recipes/?recipe_name=nasi",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"book-recipe",
+								"book-recipes",
+								""
+							],
+							"query": [
+								{
+									"key": "recipe_name",
+									"value": "nasi"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List Level",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzgyNTQwLCJpYXQiOjE3MjM2OTYxNDAsImp0aSI6IjhhNGJhODRiNTk0ZDQxY2NhMDUxNmJhMGNjNDg2YmNmIiwidXNlcl9pZCI6MX0.SWC70MahPI7AMDY7HQ3GlBGNNzFyRDZPblyq73BImwU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/level/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"level",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzgyNTQwLCJpYXQiOjE3MjM2OTYxNDAsImp0aSI6IjhhNGJhODRiNTk0ZDQxY2NhMDUxNmJhMGNjNDg2YmNmIiwidXNlcl9pZCI6MX0.SWC70MahPI7AMDY7HQ3GlBGNNzFyRDZPblyq73BImwU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/category/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"category",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
